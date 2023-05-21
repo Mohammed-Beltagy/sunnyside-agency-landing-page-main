@@ -7,5 +7,39 @@ html(lang="en")
 
     link(rel="icon", type="image/png", sizes="32x32", href="./images/favicon-32x32.png")
     title Frontend Mentor | Sunnyside agency landing page
-    
+
+    //- Fonts
+    link(rel='preconnect', href='https://fonts.googleapis.com')
+    link(rel='preconnect', href='https://fonts.gstatic.com', crossorigin)
+    link(href='https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:wght@700;900&display=swap', rel='stylesheet')
+
+    //- Style
+    link(rel="stylesheet", href="main.css")
+
   body 
+    section.hero
+      img.background(src="images/mobile/image-header.jpg", alt=" ", width="1000")
+      .container 
+        header
+          img.logo(src="images/logo.svg", alt="sunnyside")
+          nav
+            img#menu-btn.menu-icon(src="images/icon-hamburger.svg", alt="navigation")
+            ul 
+              li 
+                a(href="#about") About
+              li 
+                a(href="#services") Services
+              li 
+                a(href="#projects") Projects
+              li 
+                a(href="#contact") Contact
+
+        .title
+          h1 We Are Creatives
+          img.arrow(src="images/icon-arrow-down.svg", alt="Scroll Down")
+
+    script.
+      document.getElementById("menu-btn").onclick = function () {
+        this.nextElementSibling.classList.toggle("opened")
+      }
+      

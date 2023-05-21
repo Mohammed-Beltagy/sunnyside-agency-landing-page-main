@@ -7,7 +7,7 @@ const gulp = require("gulp"),
 // Compile Pug Files
 gulp.task("compile-pug", () =>
   gulp
-    .src("./stage/html/*.pug")
+    .src("./stage/*.pug")
     .pipe(pug())
     .pipe(gulp.dest("./docs/"))
     .pipe(connect.reload())
@@ -35,8 +35,8 @@ gulp.task("default", () => {
     livereload: true,
   });
   gulp.watch(
-    "./stage/html/**/*.pug",
+    "./stage/**/*.pug",
     gulp.series(["compile-pug", "redirect-images"])
   );
-  gulp.watch("./stage/sass/**/*.sass", gulp.series("compile-sass"));
+  gulp.watch("./stage/**/*.sass", gulp.series("compile-sass"));
 });
