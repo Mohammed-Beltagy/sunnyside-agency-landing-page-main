@@ -1,31 +1,39 @@
 @import 'reset-css'
 @import 'variables'
 
-// Font
+// Global Rules
 :root
   font-size: 18px
 body
   font-family: $ordinary-font
   font-weight: 600
+  background-color: #FFFBF8
+
+// Container
+.container
+  max-width: 80rem
+  margin-inline: auto
 
 // Hero Section
 .hero
   position: relative
   background-color: #3ebfff
-  overflow: hidden
+  // overflow: hidden
 
   .background
     @include md-screens
       content: url("images/desktop/image-header.jpg")
     width: 100%
     min-height: 50svh
-    max-height: 100svh
+    max-height: min(50rem, 100svh)
     object-fit: cover
+    object-position: bottom
 
   .container
     position: absolute
     top: 0
-    left: 0
+    left: 50%
+    transform: translateX(-50%)
     width: 100%
     height: 100%
     // Layout header & .title
@@ -106,8 +114,13 @@ body
     position: relative
     display: flex
     flex-direction: column
-    justify-content: space-evenly
     align-items: center
+    letter-spacing: .3rem
+    gap: 1rem
+    padding-top: 1rem
+    @include md-screens
+      padding-top: 2rem
+      gap: 2rem
 
     h1
       font-family: $headdings-font
@@ -118,10 +131,103 @@ body
       text-align: center
       white-space: break-spaces
       word-wrap: break-word
-      @include md-screens
-        font-size: 3.5rem
-      @include lg-screens
-        font-size: 5rem
 
     img
-      width: 3.5rem
+      width: 1.5rem
+      
+
+// 2. Articles Section
+.articles .row
+  display: grid
+  grid-template-colomns: 1fr
+  align-items: stretch
+  @include md-screens
+    grid-template-columns: 1fr 1fr
+    &:first-child 
+      border-left: 5px solid #fff
+      img
+        order: 2
+    &:nth-child(2)
+      border-right: 5px solid #fff
+    &:nth-child(3) :first-child img
+      content: url('images/desktop/image-graphic-design.jpg')
+    &:nth-child(3) :last-child img
+      content: url('images/desktop/image-photography.jpg')
+
+  article
+    padding: min(10%, 3rem)
+    display: flex
+    flex-direction: column
+    justify-content: center
+    gap: 1.2rem
+    @include lg-screens
+      padding: 4rem
+
+    h2
+      color: #252E3C
+      font-family: $headdings-font
+      font-size: min(15vw, 2em)
+      line-height: 1.2  
+      font-weight: 900
+      @include lg-screens
+        font-size: 2.8em
+
+  img
+    object-fit: cover
+    @include md-screens
+      width: 100%
+
+  &:not(.text-on-img)
+
+    p
+      color: #7F7D87
+      font-size: .9rem
+
+    a
+      position: relative
+      display: block
+      font-size: 1.1rem
+      font-family: $headdings-font
+      cursor: pointer
+      width: fit-content
+      line-height: 1
+      z-index: 3
+      &::before
+        content: ""
+        position: absolute
+        left: 50%
+        bottom: 0
+        transform: translate(-50%, .2em)
+        width: 120%
+        height: .6em
+        border-radius: 1rem
+        z-index: -1
+        opacity: .3 
+        transition: opacity .3s
+      &:hover::before
+        opacity: 1
+      &.yellow-link::before  
+        background-color: #F3D418
+      &.red-link::before  
+        background-color: hsl(7, 99%, 70%)
+          
+    
+  &.text-on-img
+    .box
+      position: relative
+      overflow: hidden
+
+      article
+        opacity: .8
+        margin-top: -80%
+        margin-bottom: 20%
+        min-height: 50%
+        width: 100%
+        font-size: .8rem
+        text-align: center
+        @include md-screens
+          margin-inline: auto
+          margin-top: -45%
+          margin-bottom: 0%
+          min-height: 0
+          padding-bottom: 1rem
