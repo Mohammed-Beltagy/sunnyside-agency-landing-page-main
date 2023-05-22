@@ -14,7 +14,8 @@ body
   max-width: 80rem
   margin-inline: auto
 
-// Hero Section
+// 1. Hero Section
+// ===============
 .hero
   position: relative
   background-color: #3ebfff
@@ -137,6 +138,7 @@ body
       
 
 // 2. Articles Section
+// ===================
 .articles .row
   display: grid
   grid-template-colomns: 1fr
@@ -219,15 +221,68 @@ body
 
       article
         opacity: .8
-        margin-top: -80%
-        margin-bottom: 20%
-        min-height: 50%
+        margin-top: -60vw
+        margin-bottom: 2rem
         width: 100%
         font-size: .8rem
         text-align: center
         @include md-screens
-          margin-inline: auto
-          margin-top: -45%
-          margin-bottom: 0%
-          min-height: 0
+          margin: -15rem auto 3rem
           padding-bottom: 1rem
+          max-width: 30rem
+          line-height: 1.8
+
+          h2
+            font-size: 1.6rem
+
+// 3. Testimonials Section
+// =======================
+.testimonials
+  padding: 4rem 2rem
+  @include md-screens
+    padding: 8rem
+
+  h2
+    color: #A6A8AC
+    font: 900 .9rem/1 $headdings-font
+    text-transform: uppercase
+    letter-spacing: .2rem
+    text-align: center
+    margin-bottom: 4rem
+    @include md-screens
+      font-size: 1.2rem
+
+  .container
+    @include md-screens
+      display: flex
+      justify-content: space-between
+      gap: 1rem
+
+    article
+      text-align: center
+      margin-bottom: 3rem
+      @include md-screens
+        margin-bottom: 0
+
+      img
+        width: 4rem
+        border-radius: 100%
+        margin: 0 auto
+
+      p
+        margin: 2rem 0
+        color: hsl(213, 9%, 39%)
+        line-height: 1.8
+        @include md-screens
+        margin: 3rem 0
+
+      .client .name
+        display: block
+        font-weight: 900
+        font-family: $headdings-font
+
+      .client .job-title
+        color: #7F7D87
+        font-size: .8em
+        color: #85878B
+

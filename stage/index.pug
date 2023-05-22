@@ -17,6 +17,7 @@ html(lang="en")
     link(rel="stylesheet", href="main.css")
 
   body 
+    //- Hero Section
     section.hero
       img.background(src="images/mobile/image-header.jpg", alt=" ", width="1000")
       .container 
@@ -38,6 +39,7 @@ html(lang="en")
           h1 We Are Creatives
           img.arrow(src="images/icon-arrow-down.svg", alt="Scroll Down")
 
+    //- Articles Section
     section.articles 
       .container
         .row 
@@ -63,6 +65,32 @@ html(lang="en")
             article
               h2 Photography
               p Increase your credibility by getting the most stunning, high-quality photos that improve your business image.
+
+    //- testimonials Section
+    section.testimonials
+      h2 Client Testimonials
+      
+      .container
+        article
+          img(src="images/image-thomas.jpg", alt="Profile Picture")
+          p We put our trust in Sunnyside and they delivered, making sure our needs were met and deadlines were always hit.
+          .client
+            span.name Emily R.
+            span.job-title Marketing Director
+
+        article
+          img(src="images/image-thomas.jpg", alt="Profile Picture")
+          p Sunnyside’s enthusiasm coupled with their keen interest in our brand’s success made it a satisfying and enjoyable experience.
+          .client
+            span.name Thomas S.
+            span.job-title Chief Operating Officer
+
+        article
+          img(src="images/image-thomas.jpg", alt="Profile Picture")
+          p Incredible end result! Our sales increased over 400% when we worked with Sunnyside. Highly recommended!
+          .client
+            span.name Jennie F.
+            span.job-title Business Owner
 
 
     script.
