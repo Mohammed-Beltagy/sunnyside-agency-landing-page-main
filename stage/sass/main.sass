@@ -238,7 +238,7 @@ body
 // 3. Testimonials Section
 // =======================
 .testimonials
-  padding: 4rem 2rem
+  padding: 4rem 2rem 2rem
   @include md-screens
     padding: 8rem
 
@@ -286,3 +286,14 @@ body
         font-size: .8em
         color: #85878B
 
+// 3. Gallery Section
+// ==================
+.gallery
+  width: 100%
+  display: grid
+  grid-template-columns: 1fr 1fr
+  @include md-screens
+    grid-template-columns: repeat(4, 1fr)
+
+  img
+    width: 100%
