@@ -4,6 +4,7 @@
 // Global Rules
 :root
   font-size: 18px
+  scroll-behavior: smooth
 body
   font-family: $ordinary-font
   font-weight: 600
@@ -49,6 +50,10 @@ body
     padding: 1.5rem
     z-index: 2 // to display nav menu above .title 
 
+    @include md-screens
+      .logo
+        height: 2rem    
+
     .menu-icon
       display: none
       @include sm-screens
@@ -62,6 +67,22 @@ body
 
       li
         color: #fff
+        position: relative
+        @include md-screens
+          font-size: 1.2rem
+          &::after
+            content: ""
+            position: absolute
+            height: .1em
+            background-color: #fff
+            border-radius: 1em
+            width: 0
+            bottom: 0
+            left: 50%
+            transform: translate(-50%, 100%)
+            transition: width .3s
+          &:hover::after
+            width: 90%
 
       @include sm-screens
         display: none
